@@ -1,0 +1,207 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+;---------------------------------------
+; Visual
+;---------------------------------------
+[colors]
+background = ${xrdb:background}
+foreground = ${xrdb:foreground}
+gray = ${xrdb:color0}
+red = ${xrdb:color1}
+yellow = ${xrdb:color3}
+blue = ${xrdb:color4}
+green = ${xrdb:color2}
+
+;---------------------------------------
+; Bars
+;---------------------------------------
+[bar/bar1]
+fixed-center = true
+width = 100%
+height = 40
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+line-color = ${colors.foreground}
+line-size = 1
+
+border-color = #00000000
+border-left-size = 200
+border-right-size = 200
+border-top-size = 15
+
+font-0 = Roboto:weight=bold:pixelsize=11;3
+font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=11;3"
+font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=11;3"
+font-3 = "Font Awesome 5 Brands:pixelsize=11;3"
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+modules-left = battery volume wifi keyboard
+modules-center = i3
+modules-right = xwindow date
+module-margin = 1
+
+;---------------------------------------
+; Left modules
+;---------------------------------------
+[module/xwindow]
+type = internal/xwindow
+format-prefix = 
+format-prefix-padding-left = 5
+format-background = ${colors.gray}
+format-foreground = ${colors.blue}
+label = %title:0:32:...%
+label-padding = 5
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %b %m, %Y
+time = %H:%M:%S
+label =   %date%  |  %time%
+label-padding = 5
+label-background = ${colors.gray}
+label-foreground = ${colors.yellow}
+
+;---------------------------------------
+; Center modules
+;---------------------------------------
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+format-prefix = 
+format-prefix-padding = 5
+format-background = ${colors.gray}
+format-foreground = ${colors.yellow}
+index-sort = true
+wrapping-scroll = false
+
+label-focused-padding = 5
+label-focused-background = ${colors.yellow}
+label-focused-foreground = ${colors.background}
+
+label-unfocused-padding = 5
+label-unfocused-background = ${colors.gray}
+label-unfocused-foreground = ${colors.foreground}
+
+;---------------------------------------
+; Right modules
+;---------------------------------------
+[module/battery]
+type = internal/battery
+full-at = 99
+battery = BAT0
+adapter = AC0
+poll-interval = 5
+
+format-charging-foreground = ${colors.yellow}
+format-charging-background = ${colors.gray}
+format-discharging-foreground = ${colors.yellow}
+format-discharging-background = ${colors.gray}
+format-full-foreground = ${colors.yellow}
+format-full-background = ${colors.gray}
+
+animation-charging-padding-left = 5
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+
+ramp-capacity-padding-left = 5
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+label-charging-padding-right = 5
+label-charging = "   %percentage%%"
+format-charging = <animation-charging><label-charging>
+
+label-discharging-padding-right = 5
+label-discharging = "   %percentage%%"
+format-discharging = <ramp-capacity><label-discharging>
+
+label-full-padding-right = 5
+label-full = "   %percentage%%"
+format-full = <ramp-capacity><label-full>
+
+[module/volume]
+;type = internal/volume
+type = internal/pulseaudio
+use-ui-max = false
+
+format-volume = <ramp-volume><label-volume>
+label-volume-background = ${colors.gray}
+label-volume-padding-right = 5
+label-volume = "   %percentage%%"
+label-volume-foreground = ${colors.blue}
+
+format-muted = <label-muted>
+label-muted = "   mute"
+label-muted-padding = 5
+label-muted-background = ${colors.gray}
+label-muted-foreground = ${colors.red}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-padding-left = 5
+ramp-volume-background = ${colors.gray}
+ramp-volume-foreground = ${colors.blue}
+
+[module/wifi]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+
+format-connected-background = ${colors.gray}
+format-connected-foreground = ${colors.green}
+format-connected =    <label-connected>
+format-connected-padding = 5
+label-connected = %essid%
+
+format-disconnected-background = ${colors.gray}
+format-disconnected-foreground = ${colors.red}
+format-disconnected = <label-disconnected>
+format-disconnected-padding = 5
+label-disconnected =    Disconnected
+
+[module/keyboard]
+type = internal/xkeyboard
+format = <label-indicator>  <label-layout>
+
+label-layout =    %name%
+label-layout-padding = 5
+label-layout-background = ${colors.gray}
+label-layout-foreground = ${colors.red}
+
+label-indicator =    %name%
+label-indicator-padding = 5
+label-indicator-background = ${colors.yellow}
+label-indicator-foreground = ${colors.background}
+
+
+;---------------------------------------
+; Settings
+;---------------------------------------
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
+
