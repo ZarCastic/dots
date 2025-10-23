@@ -9,3 +9,5 @@ alias la='exa --long --all --icons --git'
 
 alias task='go-task'
 alias cd='z'
+
+alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
