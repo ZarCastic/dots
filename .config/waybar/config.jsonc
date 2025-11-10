@@ -6,7 +6,12 @@
   // "width": 1280, // Waybar width
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": ["hyprland/workspaces", "niri/workspaces", "hyprland/mode"],
+  "modules-left": [
+    "hyprland/workspaces",
+    "niri/workspaces",
+    "sway/workspaces",
+    "hyprland/mode",
+  ],
   "modules-center": ["sway/window"],
   "modules-right": [
     "network",
@@ -19,22 +24,22 @@
     "clock",
   ],
   // Modules configuration
-  // "sway/workspaces": {
-  //     "disable-scroll": true,
-  //     "all-outputs": true,
-  //     "warp-on-scroll": false,
-  //     "format": "{name}: {icon}",
-  //     "format-icons": {
-  //         "1": "",
-  //         "2": "",
-  //         "3": "",
-  //         "4": "",
-  //         "5": "",
-  //         "urgent": "",
-  //         "focused": "",
-  //         "default": ""
-  //     }
-  // },
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{name}: {icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "urgent": "",
+      "focused": "",
+      "default": "",
+    },
+  },
   "niri/workspaces": {
     "format": " {value} {icon} ",
     "format-icons": {
