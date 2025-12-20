@@ -95,14 +95,8 @@ zinit wait lucid for \
   OMZP::git
 #some quickfixes
 alias k="exit"
-
 alias cat='bat'
 
-alias ls='exa --icons'
-alias l='exa --long --header --icons --git'
-alias la='exa --long --all --icons --git'
-
-alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
