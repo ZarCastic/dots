@@ -10,6 +10,8 @@ enable-normalization-opposite-orientation-for-nested-containers = false
 # Mouse follows focus when focused monitor changes
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
+start-at-login = true
+
 [workspace-to-monitor-force-assignment]
     1 = 'main'
     2 = 'main'
@@ -48,7 +50,7 @@ alt-v = 'split vertical'
 
 alt-f = 'fullscreen'
 
-alt-s = 'layout v_accordion'               # 'layout stacking' in i3
+#alt-s = 'layout v_accordion'               # 'layout stacking' in i3
 alt-w = 'layout h_accordion'               # 'layout tabbed' in i3
 alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 
